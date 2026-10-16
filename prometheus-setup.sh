@@ -60,7 +60,8 @@ tar xzvf "${TAR_FILE}"
 # --------------------------------------------------
 
 groupadd --system prometheus
-useradd -s /sbin/nologin --system -g prometheus prometheus
+useradd --system --no-create-home --shell /sbin/nologin --gid prometheus prometheus
+# disable interactive shell login, and assign it to the existing 'prometheus' group.
 
 # --------------------------------------------------
 # Create Prometheus data directory
